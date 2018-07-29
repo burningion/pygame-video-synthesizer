@@ -18,7 +18,7 @@ parser.add_argument("-input", required=False, type=int, help="Audio Input Device
 parser.add_argument("-f", action="store_true", help="Run in Fullscreen Mode")
 args = parser.parse_args()
 
-if not args.input:
+if args.input is None:
     print("No input device specified. Printing list of input devices now: ")
     p = pyaudio.PyAudio()
     for i in range(p.get_device_count()):
